@@ -1,3 +1,5 @@
+# to run make sure you cd server
+# to run client, cd .. , then cd client
 
 from flask import Flask, jsonify 
 
