@@ -41,6 +41,12 @@ person = Person(1234, "Mike", 'Smith', "M", 30)
 session.add(person)
 session.commit()
 
+person1 = Person(6786, "Msoh", 'Mossy', "M", 23)
+person2 = Person(8709, "Julia", 'Loss', "F", 34)
+person3 = Person(3463, "Rick", 'Giordano', "M", 19)
+person4 = Person(3345, "Sam", 'Simmon', "F", 27)
+
+
 app = Flask(__name__)
 CORS(app)
 
