@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 function Index() {
   const [message, setMessage] = useState("Loading");
   const [people, setPeople] = useState([]);
+  const [randomNum, setRandomNum] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -15,7 +16,7 @@ function Index() {
         const data = await response.json();
         setMessage(data.message);
         setPeople(data.people);
-        console.log(data.people)
+        setRandomNum(data.randomNum);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -24,21 +25,15 @@ function Index() {
     fetchData();
   }, []);
 
-  return(
+  return (
     <>
-    <div>{message}</div>
-    
-      {
-        people.map((person,index)=>(
-            <div key={index}>
-              My name is: {person}
-            </div>
-        ))
-      }
-
+      <div>{message}</div>
+      <div>Random Number is: {randomNum}</div>
+      {people.map((person, index) => (
+        <div key={index}>My name is: {person}</div>
+      ))}
     </>
-
-  )
+  );
 }
 
 export default Index;
