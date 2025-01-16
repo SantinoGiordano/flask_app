@@ -5,7 +5,7 @@
 from flask import Flask, jsonify 
 from flask_cors import CORS
 app = Flask(__name__)
-
+CORS(app)
 # Run: python server.py , and go to localhost:(number)'/api/home' == num run dev
 @app.route('/api/home', methods=['GET'])
 def return_home():
