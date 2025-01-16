@@ -1,7 +1,9 @@
 'use client';
 import { useEffect, useState } from 'react';
 
-const Index = () => {
+function Index(){
+
+  const[message, setMessage] = useState('')
 
   useEffect(() => {
     const fetchData = async () => {
