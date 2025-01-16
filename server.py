@@ -10,7 +10,7 @@ app = Flask(__name__)
 @app.route('/api/home', methods=['GET'])
 def return_home():
     return jsonify({
-        'message':'Hello World'
+        'message':'Hello World from the backend'
     })
 
 
