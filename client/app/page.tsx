@@ -1,27 +1,29 @@
-import { useEffect, useState } from "react"
+'use client';
+import { useEffect, useState } from 'react';
 
 const Index = () => {
-  
+
   useEffect(() => {
-    // Define the async function inside the useEffect
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost/api/home');
+        console.log('Fetching data...');
+        const response = await fetch('http://localhost:8080/api/home');
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
         const data = await response.json();
-        console.log(data); 
+        console.log('Fetched data:', data);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
-      console.log("hello"); 
     };
-  
+
     fetchData(); 
   }, []);
 
-
   return (
     <div>Hello world </div>
-  )
+  );
 }
 
-export default Index
+export default Index;
