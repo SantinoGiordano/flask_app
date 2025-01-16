@@ -24,7 +24,21 @@ function Index() {
     fetchData();
   }, []);
 
-  return <div>{message}</div>;
+  return(
+    <>
+    <div>{message}</div>
+    
+      {
+        people.map((person,index)=>(
+            <div key={index}>
+              My name is: {person}
+            </div>
+        ))
+      }
+
+    </>
+
+  )
 }
 
 export default Index;
