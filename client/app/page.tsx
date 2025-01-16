@@ -4,12 +4,12 @@ import { useEffect, useState } from "react";
 function Index() {
   const [message, setMessage] = useState("Loading");
   const [people, setPeople] = useState([]);
-  const [randomNum, setRandomNum] = useState("");
+  const [randomNum, setRandomNum] = useState();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:8080/api/home");
+        const response = await fetch("http://localhost:8080/api");
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
@@ -17,6 +17,7 @@ function Index() {
         setMessage(data.message);
         setPeople(data.people);
         setRandomNum(data.randomNum);
+        console.log(randomNum)
       } catch (error) {
         console.error("Error fetching data:", error);
       }
