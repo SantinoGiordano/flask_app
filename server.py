@@ -21,6 +21,15 @@ class Person(Base):
     gender = Column('geder', CHAR)
     age = Column('age', Integer)
 
+    def __init__(self, ssn, firstname, lastname, age, gender):
+        self.ssn = ssn
+        self.firstname = firstname
+        self.lastname = lastname
+        self.age = age
+        self.gender = gender
+    
+    
+
 
 app = Flask(__name__)
 CORS(app)
