@@ -21,12 +21,12 @@ class Person(Base):
     gender = Column('geder', CHAR)
     age = Column('age', Integer)
 
-    def __init__(self, ssn, firstname, lastname, age, gender):
+    def __init__(self, ssn, firstname, lastname, gender, age):
         self.ssn = ssn
         self.firstname = firstname
         self.lastname = lastname
-        self.age = age
         self.gender = gender
+        self.age = age
     
     def __repr__(self):
         return f'({self.ssn}){self.firstname} {self.lastname} ({self.gender}, {self.age})'
@@ -36,6 +36,10 @@ Base.metadata.create_all(bind=engine)
 
 Session = sessionmaker(bind=engine)
 session = Session()
+
+person = Person(1234, "Mike", 'Smith', "M", 30)
+session.add(person)
+session.commit()
 
 app = Flask(__name__)
 CORS(app)
