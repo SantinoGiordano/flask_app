@@ -1,7 +1,9 @@
-import Image from "next/image";
+import React from 'react'
 
-export default function Home() {
+const Index = () => {
   return (
-   <p>helllo World</p>
-  );
+    <div>Hello world </div>
+  )
 }
+
+export default Index
